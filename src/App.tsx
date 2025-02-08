@@ -1,27 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './Layout/Header';
-import Footer from './Layout/Footer';
-import Navbar from './Layout/Navbar';
-import Home from './pages/Home';
-import Profile from './pages/Profile';
-import Settings from './pages/Setting';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./Layout/Layout";
+import Home from "./pages/Home";
+import Profile from "./pages/Profile";
+import Login from "./pages/login";
+import Settings from "../src/pages/Setting";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <Router>
-      <div>
-        <Header />
-        <Navbar />
-        <main >
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/settings" element={<Settings />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+      </Routes>
     </Router>
   );
 };
