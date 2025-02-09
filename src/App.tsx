@@ -9,6 +9,7 @@ import Dashboard from "./pages/admin/dashboard";
 import Users from "./pages/admin/user";
 import Manage from "./pages/admin/manage";
 import DashboardLayout from "./component/dashboard";
+import ApartmentDetail from "./pages/ApartmentDetail"; // Make sure to import ApartmentDetail
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,7 @@ const App: React.FC = () => {
           <Route index element={<Home />} />
           <Route path="profile" element={<Profile />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="apartment/:id" element={<ApartmentDetail />} />
         </Route>
       </Routes>
     </Router>
